@@ -1,0 +1,6 @@
+# .dockerignore
+.git
+__pycache__
+*.pyc
+static/
+django_stripe/.env

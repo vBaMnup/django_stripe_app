@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buy cool new product</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+{% csrf_token %}
+<section>
+  <div class="product">
+    <img src="https://www.ixbt.com/img/n1/news/2022/11/2/df2cc2c3526747a58afd5895d1b640aa_small.jpg"
+         alt="The cover of Stubborn Attachments"/>
+    <div class="description">
+      <h3>{{ item.name }}</h3>
+      <h5>{{ item.description }}</h5>
+      <h5>RUB {{ item.price }}</h5>
+    </div>
+  </div>
+  <form action="{% url 'create-checkout-session' item.id %}" method="GET">
+    {% csrf_token %}
+    <button type="submit" id="checkout-button">Buy</button>
+  </form>
+</section>
+</body>
+</html>

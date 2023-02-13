@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  web:
+    image: vbamnup/django_stripe:v0.1
+    restart: always
+    ports:
+     - "8000:8000"
+    volumes:
+      - ./templates:/app/templates
+    env_file:
+      - .env
+
+  nginx:
+    image: nginx:1.21.3-alpine
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./static:/var/html/static/
+      - ./templates:/templates
+    depends_on:
+      - web
