@@ -3,6 +3,10 @@ Django + Stripe API бэкенд с возможностью получения 
 
 [Проверить работоспособность (сайт)](http://andrey77.pythonanywhere.com/item/1/)
 
+Доступ в админку:
+username: admin
+password: admin
+
 ### Стек:
 
 - Python 3.10
